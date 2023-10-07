@@ -17,5 +17,5 @@ def product_view (request):
 def demo_view (request):
     return render(request, 'landing_page/demo_view.html')
 
-def whoisitfor_view (request):
-    return render(request, 'landing_page/whoisitfor_view.html')
+def usecase_view (request):
+    return render(request, 'landing_page/usecase_view.html')

@@ -7,5 +7,5 @@ urlpatterns = [
     path('help/',views.help_view),
     path('pricing/',views.pricing_view),
     path('product/',views.product_view),
-    path('whoisitfor/',views.whoisitfor_view),
+    path('usecase/',views.usecase_view),
 ]
