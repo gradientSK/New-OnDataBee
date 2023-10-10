@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.contrib.auth.forms import UserCreationForm
 
 def user_login (request):
     if request.method == 'POST':
@@ -16,4 +17,8 @@ def user_login (request):
     else:
         return render(request, 'member_ship/login_view.html')
 
-    # return render(request, 'member_ship/login_view.html', {})
+#add log out function later
+def register_user(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+    return render(request, 'member_ship/signup_view.html', {})
