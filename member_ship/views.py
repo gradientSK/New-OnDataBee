@@ -21,4 +21,17 @@ def user_login (request):
 def register_user(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
-    return render(request, 'member_ship/signup_view.html', {})
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+            user = authenticate(username=username, password=password)
+            login (request, user)
+            messages.success(request, ('registeration, successfull'))
+            return redirect('/')
+    else:
+        form = UserCreationForm()
+            
+    return render(request, 'member_ship/signup_view.html', {
+        'form': form ,
+    })

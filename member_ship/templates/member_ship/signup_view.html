@@ -1,5 +1,9 @@
-<h1>sign up</h1>
+{% if form.errors %}
+<p>There was an error with your form ...</p>
+{% endif %}
 
+<h1>sign up</h1>
+{% csrf_token %}
 {% if messages %}
     {% for message in messages %} 
         {{message}}
@@ -7,7 +11,7 @@
 {% endif %}
 <form action="" method="POST">
   {% csrf_token %}
-
+  {{ form.as_p }}
   <input type="submit" value="Submit" class="btn btn-secondary" />
 </form>
 
