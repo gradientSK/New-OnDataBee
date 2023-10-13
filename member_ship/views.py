@@ -12,7 +12,7 @@ def user_login (request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request,user)
-            return redirect('/d/dashboard')
+            return redirect('/d/dashboardmanager/')
         else:
             messages.success(request, ('there was an error logging in, try again...'))
             return redirect('/m/user_login')
@@ -37,7 +37,7 @@ def register_user(request):
             user = authenticate(username=username, password=password)
             login (request, user)
             messages.success(request, ('registeration, successfull'))
-            return redirect('/d/dashboard')
+            return redirect('/d/dashboardmanager/')
     else:
         form = RegisterUserForm()
             

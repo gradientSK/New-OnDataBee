@@ -14,10 +14,10 @@ def export_view (request):
     return render(request, 'dashboard_page/export_view.html')
 
 def savedtemplates_view (request):
-    return render(request, 'dashboard_page/savedtemplates.html')
+    return render(request, 'dashboard_page/savedtemplates_view.html')
 
 def whitelabel_view (request):
     return render(request, 'dashboard_page/whitelabel_view.html')
 
 def logomanager_view (request):
-    return render(request, 'dashboard_page/logomanager.html')
+    return render(request, 'dashboard_page/logomanager_view.html')
