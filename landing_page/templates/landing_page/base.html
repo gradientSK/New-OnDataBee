@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ondatabee</title>
+    <style>
+        /* Navbar styling */
+        .navbar {
+            background-color: #FAD02E; /* Beehive-like background color */
+            padding: 10px 0;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .navbar a {
+            color: #000;
+            margin: 0 20px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/">Home</a>
+        <a href="/demo/">Demo</a>
+        <a href="/help/">Help</a>
+        <a href="/pricing/">Pricing</a>
+        <a href="/product/">Products</a>
+        <a href="/usecase/">Use Case</a>
+        {% if user.is_authenticated %}
+            <a href="/m/user_logout/">Logout</a>
+        {% else %}
+            <a href="/m/user_login/">Login</a>
+        {% endif %}
+    </nav>
+    <div class="container">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+            {% endfor %}
+        {% endif %}
+        {% block content %}
+        {% endblock %}
+    </div>
+    <!-- Include your scripts and additional CSS here -->
+</body>
+</html>
